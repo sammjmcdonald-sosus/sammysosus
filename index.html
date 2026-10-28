@@ -1,1 +1,108 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sammy Sosus #21</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #003DA5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .jersey {
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    .name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1px;
+      margin-bottom: -5px;
+    }
+
+    .name span {
+      display: inline-block;
+      color: #D71920;
+      font-size: clamp(20px, 5.5vw, 38px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-shadow: 2px 2px 0 #00276B;
+    }
+
+    /* Curve the letters into an arch */
+    .name span:nth-child(1)  { transform: translateY(20px) rotate(-24deg); }
+    .name span:nth-child(2)  { transform: translateY(10px) rotate(-18deg); }
+    .name span:nth-child(3)  { transform: translateY(3px) rotate(-12deg); }
+    .name span:nth-child(4)  { transform: translateY(-2px) rotate(-6deg); }
+    .name span:nth-child(5)  { transform: translateY(-5px) rotate(-2deg); }
+    .name span:nth-child(6)  { transform: translateY(-5px) rotate(2deg); }
+    .name span:nth-child(7)  { transform: translateY(-2px) rotate(6deg); }
+    .name span:nth-child(8)  { transform: translateY(3px) rotate(12deg); }
+    .name span:nth-child(9)  { transform: translateY(10px) rotate(18deg); }
+    .name span:nth-child(10) { transform: translateY(20px) rotate(24deg); }
+    .name span:nth-child(11) { transform: translateY(29px) rotate(28deg); }
+
+    .number {
+      color: #D71920;
+      font-size: clamp(180px, 45vw, 340px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -12px;
+      text-shadow:
+        4px 4px 0 #FFFFFF,
+        8px 8px 0 #D71920;
+      -webkit-text-stroke: 2px #FFFFFF;
+    }
+
+    .pinstripes {
+      display: inline-block;
+      padding: 20px 35px;
+      background: repeating-linear-gradient(
+        90deg,
+        #FFFFFF 0px,
+        #FFFFFF 2px,
+        #003DA5 2px,
+        #003DA5 12px
+      );
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="jersey">
+    <div class="name" aria-label="Sammy Sosus">
+      <span>S</span>
+      <span>A</span>
+      <span>M</span>
+      <span>M</span>
+      <span>Y</span>
+      <span>&nbsp;</span>
+      <span>S</span>
+      <span>O</span>
+      <span>S</span>
+      <span>U</span>
+      <span>S</span>
+    </div>
+
+    <div class="number">21</div>
+  </main>
+</body>
+</html>
+
