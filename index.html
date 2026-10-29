@@ -145,23 +145,45 @@
       background: rgba(255, 255, 255, 0.12);
     }
 
-    @media (max-width: 480px) {
-      .jersey {
-        padding: 20px 8px;
-      }
+    
+@media (max-width: 480px) {
+  .jersey {
+    min-height: 100svh;
+    padding: 24px 16px;
+    overflow: visible;
+  }
 
-      .design {
-        width: 100%;
-      }
+  .design {
+    width: 100%;
+    max-width: 420px;
+    transform: none;
+  }
 
-      .name-text {
-        font-size: 70px;
-        letter-spacing: 2px;
-      }
+  .arched-name {
+    width: 100%;
+    height: auto;
+    margin-bottom: 4px;
+  }
 
-      .number {
-        font-size: clamp(190px, 52vw, 250px);
-        -webkit-text-stroke-width: 3px;
+  .name-text {
+    font-size: 68px;
+    letter-spacing: 1px;
+    stroke-width: 1.5px;
+  }
+
+  .number {
+    font-size: clamp(150px, 44vw, 220px);
+    letter-spacing: -0.04em;
+    padding-right: 0.04em;
+    -webkit-text-stroke-width: 3px;
+    line-height: 1;
+  }
+
+  .seam {
+    margin-top: 12px;
+  }
+}
+
       }
     }
   </style>
