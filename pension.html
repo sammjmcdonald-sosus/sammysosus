@@ -13,56 +13,40 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
-      background-color: #0E3386;
+      background: #0E3386;
       color: white;
       font-family: Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 24px 16px;
       text-align: center;
-      padding: 40px 20px;
+      border-bottom: 3px solid #CC3433;
     }
 
-    h1 {
-      color: #CC3433;
-      font-size: clamp(32px, 7vw, 52px);
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      -webkit-text-stroke: 1px white;
-      text-shadow: 3px 3px 0 #071D49;
-      margin: 20px 0 10px;
-    }
-
-    .subtitle {
-      color: white;
-      font-size: 13px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 45px;
-    }
-
-    .pension-panel {
-      max-width: 650px;
-      margin: 0 auto;
-      padding: 35px 25px;
-      border: 2px solid white;
-      border-top: 6px solid #CC3433;
-      background-color: #0A2868;
-      box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    .pension-panel p {
+    .brand {
       margin: 0;
-      font-size: clamp(16px, 3vw, 21px);
-      line-height: 1.7;
-      font-weight: bold;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: clamp(38px, 8vw, 64px);
+      letter-spacing: 3px;
+      line-height: 1;
+      color: #CC3433;
+      -webkit-text-stroke: 1.5px white;
+      text-shadow: 3px 3px 0 #071D49;
+    }
+
+    .brand span {
+      display: inline-block;
+      margin-left: 8px;
     }
 
     .back-link {
       display: inline-block;
-      margin-top: 35px;
+      margin-top: 18px;
       color: white;
-      font-size: 13px;
-      letter-spacing: 3px;
+      font-size: 12px;
+      letter-spacing: 2px;
       text-decoration: none;
       text-transform: uppercase;
     }
@@ -71,26 +55,59 @@
       color: #CC3433;
     }
 
-    .footer {
-      margin-top: 60px;
-      color: rgba(255, 255, 255, 0.65);
-      font-size: 11px;
-      letter-spacing: 3px;
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #CC3433;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0 0 30px;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: clamp(32px, 6vw, 46px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .info-card {
+      background: #09265F;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-left: 5px solid #CC3433;
+      padding: 28px 24px;
+      text-align: left;
+    }
+
+    .info-card p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.7;
     }
   </style>
 </head>
 
 <body>
-  <h1>Pension</h1>
-  <div class="subtitle">SAMMY SOSUS 21</div>
+  <header>
+    <h1 class="brand">SAMMY SOSUS <span>21</span></h1>
+    <a href="home.html" class="back-link">← Back to Home</a>
+  </header>
 
-  <div class="pension-panel">
-    <p>Important information about league pension to be announced</p>
-  </div>
+  <main>
+    <div class="eyebrow">League Information</div>
+    <h2>Pension</h2>
 
-  <a href="home.html" class="back-link">← Back to Home</a>
-
-  <div class="footer">SAMMY SOSUS 21</div>
+    <div class="info-card">
+      <p>Important information about league pension to be announced</p>
+    </div>
+  </main>
 </body>
 </html>
-
