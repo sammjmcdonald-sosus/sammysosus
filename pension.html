@@ -76,6 +76,64 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
+    
+.pension-balance {
+  margin: 36px auto 0;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.live-dot {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  background: #FF3333;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 51, 51, 0.8);
+  animation: live-pulse 1.2s infinite;
+}
+
+@keyframes live-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(255, 51, 51, 0.8);
+  }
+
+  50% {
+    opacity: 0.25;
+    box-shadow: 0 0 2px rgba(255, 51, 51, 0.2);
+  }
+}
+
+.balance-label {
+  margin: 28px 0 8px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.balance-amount {
+  margin: 0;
+  color: var(--white);
+  font-family: Impact, Haettenschweiler,
+    "Arial Narrow Bold", sans-serif;
+  font-size: clamp(56px, 12vw, 88px);
+  line-height: 1.15;
+  letter-spacing: 2px;
+}
+
 
     @media (max-width: 420px) {
       main {
@@ -96,7 +154,22 @@
   </header>
 
   <main>
-    <h2>Under Construction</h2>
+    
+<main>
+
+  <section class="pension-balance">
+    <div class="live-indicator">
+      <span class="live-dot"></span>
+      <span>LIVE</span>
+    </div>
+
+    <p class="balance-label">CURRENT BALANCE</p>
+
+    <p class="balance-amount">$54.38</p>
+    
+  </section>
+</main>
+
   </main>
 
 </body>
