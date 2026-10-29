@@ -1,2 +1,174 @@
+
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>XP Updates | SAMMY SOSUS</title>
+
+  <style>
+    :root {
+      --cubs-blue: #0E3386;
+      --cubs-red: #CC3433;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--cubs-blue);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      padding: 22px 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--cubs-red);
+    }
+
+    .brand {
+      margin: 0;
+      color: var(--white);
+      font-family: Impact, Haettenschweiler,
+        "Arial Narrow Bold", sans-serif;
+      font-size: clamp(26px, 5vw, 42px);
+      letter-spacing: 3px;
+    }
+
+    .brand span {
+      color: var(--cubs-red);
+      -webkit-text-stroke: 1px var(--white);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--white);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .back-link:hover {
+      color: var(--cubs-red);
+    }
+
+    main {
+      width: min(100% - 36px, 760px);
+      margin: 0 auto;
+      padding: 55px 0 80px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--cubs-red);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: Impact, Haettenschweiler,
+        "Arial Narrow Bold", sans-serif;
+      font-size: clamp(42px, 8vw, 68px);
+      font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      margin: 16px 0 42px;
+      color: #E0E7F5;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .update {
+      margin-bottom: 18px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-left: 4px solid var(--cubs-red);
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .update-label {
+      margin: 0 0 10px;
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .update h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .update p {
+      margin: 0;
+      color: #E0E7F5;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 25px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      text-align: center;
+      color: #E0E7F5;
+      font-size: 11px;
+      letter-spacing: 3px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1 class="brand">SAMMY SOSUS <span>21</span></h1>
+    <a class="back-link" href="index.html">
+      &larr; Back to home
+    </a>
+  </header>
+
+  <main>
+    <p class="eyebrow">The latest from the dugout</p>
+
+    <h2>XP Updates</h2>
+
+    <p class="intro">
+      What's happening behind the scenes.
+      New developments, upcoming projects, and everything
+      that's coming up to the plate.
+    </p>
+
+    <article class="update">
+      <p class="update-label">01 / The beginning</p>
+      <h3>Something is coming.</h3>
+      <p>
+        Welcome to XP Updates. This is where new announcements,
+        projects, and developments will be posted.
+        Stay tuned for what's next.
+      </p>
+    </article>
+
+    <!-- COPY AN UPDATE BLOCK TO ADD MORE UPDATES -->
+
+  </main>
+
+  <footer>
+    SAMMY SOSUS &bull; 21
+  </footer>
+
+</body>
+</html>
