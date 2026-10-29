@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>XP Updates | SAMMY SOSUS</title>
+  <title>XP Leaderboard | SAMMY SOSUS</title>
 
   <style>
     :root {
       --cubs-blue: #0E3386;
       --cubs-red: #CC3433;
       --white: #FFFFFF;
+      --muted: #C6D3ED;
+      --track: #071D4F;
     }
 
     * {
@@ -27,17 +29,16 @@
     }
 
     header {
-      padding: 22px 20px;
+      padding: 24px 16px;
       text-align: center;
       border-bottom: 2px solid var(--cubs-red);
     }
 
     .brand {
       margin: 0;
-      color: var(--white);
       font-family: Impact, Haettenschweiler,
         "Arial Narrow Bold", sans-serif;
-      font-size: clamp(26px, 5vw, 42px);
+      font-size: clamp(27px, 5vw, 42px);
       letter-spacing: 3px;
     }
 
@@ -50,7 +51,7 @@
       display: inline-block;
       margin-top: 14px;
       color: var(--white);
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 2px;
       text-decoration: none;
       text-transform: uppercase;
@@ -61,15 +62,15 @@
     }
 
     main {
-      width: min(100% - 36px, 760px);
+      width: min(100% - 32px, 780px);
       margin: 0 auto;
-      padding: 55px 0 80px;
+      padding: 45px 0 70px;
     }
 
     .eyebrow {
-      margin: 0 0 12px;
-      color: var(--cubs-red);
-      font-size: 12px;
+      margin: 0 0 10px;
+      color: #FF7777;
+      font-size: 11px;
       font-weight: bold;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -79,55 +80,174 @@
       margin: 0;
       font-family: Impact, Haettenschweiler,
         "Arial Narrow Bold", sans-serif;
-      font-size: clamp(42px, 8vw, 68px);
+      font-size: clamp(38px, 8vw, 58px);
       font-weight: normal;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    .intro {
-      margin: 16px 0 42px;
-      color: #E0E7F5;
-      font-size: 15px;
-      line-height: 1.7;
+    .subtitle {
+      margin: 12px 0 22px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
     }
 
-    .update {
-      margin-bottom: 18px;
-      padding: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-left: 4px solid var(--cubs-red);
-      background: rgba(0, 0, 0, 0.12);
-    }
-
-    .update-label {
-      margin: 0 0 10px;
-      color: #FFFFFF;
+    .update-date {
+      display: inline-block;
+      margin-bottom: 28px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
       font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 3px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
-    .update h3 {
-      margin: 0 0 10px;
-      font-size: 21px;
+    .update-date strong {
+      color: #FFFFFF;
     }
 
-    .update p {
+    .leaderboard-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .leaderboard-heading h3 {
       margin: 0;
-      color: #E0E7F5;
       font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .leaderboard-heading span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .member {
+      padding: 17px 16px;
+      margin-bottom: 10px;
+      background: rgba(0, 0, 0, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 3px;
+    }
+
+    .member-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .member-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .rank {
+      width: 27px;
+      flex-shrink: 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .name {
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .xp {
+      flex-shrink: 0;
+      font-size: 14px;
+      font-weight: bold;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .xp span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: normal;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 9px;
+      overflow: hidden;
+      background: var(--track);
+      border-radius: 2px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: var(--progress);
+      background: var(--cubs-red);
+      border-right: 2px solid var(--white);
+      border-radius: 2px;
+    }
+
+    .member-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .member:first-child {
+      border-color: rgba(255, 255, 255, 0.45);
+    }
+
+    .member:first-child .rank {
+      color: #FF7777;
+    }
+
+    .member:first-child .progress-fill {
+      background: var(--white);
+    }
+
+    .scale-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 11px;
       line-height: 1.7;
+      text-align: center;
     }
 
     footer {
-      padding: 25px 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.25);
-      text-align: center;
-      color: #E0E7F5;
-      font-size: 11px;
+      padding: 24px 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--muted);
+      font-size: 10px;
       letter-spacing: 3px;
+      text-align: center;
+    }
+
+    @media (max-width: 420px) {
+      main {
+        width: calc(100% - 22px);
+        padding-top: 32px;
+      }
+
+      .member {
+        padding: 14px 11px;
+      }
+
+      .name {
+        font-size: 13px;
+      }
+
+      .xp {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -142,28 +262,255 @@
   </header>
 
   <main>
-    <p class="eyebrow">The latest from around the league</p>
+    <p class="eyebrow">Fantasy League Tracker</p>
+    <h2>XP Leaderboard</h2>
 
-    <h2>XP Updates</h2>
-
-    <p class="intro">
-      What's happening behind the scenes.
-      New developments, upcoming projects, and everything
-      that's coming up to the plate.
+    <p class="subtitle">
+      Fourteen league members. 10,000 XP to chase.
+      Every point counts.
     </p>
 
-    <article class="update">
-      <p class="update-label">01 / The beginning</p>
-      <h3>Something is coming.</h3>
-      <p>
-        Welcome to XP Updates. This is where new announcements,
-        projects, and developments will be posted.
-        Stay tuned for what's next.
-      </p>
-    </article>
+    <!-- UPDATE THIS DATE WHEN YOU UPDATE THE XP BELOW -->
+    <div class="update-date">
+      Last Updated: <strong>29/10/2026</strong>
+    </div>
 
-    <!-- COPY AN UPDATE BLOCK TO ADD MORE UPDATES -->
+    <div class="leaderboard-heading">
+      <h3>League Standings</h3>
+      <span>Target: 10,000 XP</span>
+    </div>
 
+    <!-- Update XP values and percentages together each week.
+         Sort members from highest to lowest XP. -->
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">01</span>
+          <span class="name">AC2</span>
+        </div>
+        <div class="xp">7,100 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 71%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>71% complete</span><span>2,900 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">02</span>
+          <span class="name">DM</span>
+        </div>
+        <div class="xp">6,600 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 66%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>66% complete</span><span>3,400 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">03</span>
+          <span class="name">MI</span>
+        </div>
+        <div class="xp">6,000 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 60%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>60% complete</span><span>4,000 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">04</span>
+          <span class="name">MMc</span>
+        </div>
+        <div class="xp">5,200 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 52%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>52% complete</span><span>4,800 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">05</span>
+          <span class="name">FBG</span>
+        </div>
+        <div class="xp">4,000 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 40%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>40% complete</span><span>6,000 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">06</span>
+          <span class="name">DD</span>
+        </div>
+        <div class="xp">4,000 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 40%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>40% complete</span><span>6,000 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">07</span>
+          <span class="name">TC</span>
+        </div>
+        <div class="xp">3,500 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 35%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>35% complete</span><span>6,500 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">08</span>
+          <span class="name">CS</span>
+        </div>
+        <div class="xp">3,000 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 30%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>30% complete</span><span>7,000 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">09</span>
+          <span class="name">BN</span>
+        </div>
+        <div class="xp">3,000 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 30%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>30% complete</span><span>7,000 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">10</span>
+          <span class="name">TM</span>
+        </div>
+        <div class="xp">2,800 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 28%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>28% complete</span><span>7,200 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">11</span>
+          <span class="name">DJK</span>
+        </div>
+        <div class="xp">2,750 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 27.5%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>27.5% complete</span><span>7,250 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">12</span>
+          <span class="name">RD</span>
+        </div>
+        <div class="xp">2,600 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 26%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>26% complete</span><span>7,400 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">13</span>
+          <span class="name">SP</span>
+        </div>
+        <div class="xp">2,300 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 23%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>23% complete</span><span>7,700 XP remaining</span>
+      </div>
+    </section>
+
+    <section class="member">
+      <div class="member-top">
+        <div class="member-name">
+          <span class="rank">14</span>
+          <span class="name">MM</span>
+        </div>
+        <div class="xp">1,850 <span>XP</span></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="--progress: 18.5%"></div>
+      </div>
+      <div class="member-bottom">
+        <span>18.5% complete</span><span>8,150 XP remaining</span>
+      </div>
+    </section>
+
+    <p class="scale-note">
+      Progress is measured against the 10,000 XP target.
+      Standings reflect the last update date shown above.
+    </p>
   </main>
 
   <footer>
