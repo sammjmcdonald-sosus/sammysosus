@@ -3,222 +3,138 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#003DA5">
-  <title>Sammy Sosus #21</title>
-
-  <!-- Free, bold, athletic-style font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAMMY SOSUS #21</title>
 
   <style>
     :root {
-      --blue: #003DA5;
-      --red: #D71920;
-      --white: #FFFFFF;
+      --cubs-blue: #0E3386;
+      --cubs-red: #CC3433;
+      --jersey-white: #FFFFFF;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      min-height: 100%;
-      background: var(--blue);
-    }
-
     body {
       margin: 0;
-      min-width: 0;
       min-height: 100vh;
-      min-height: 100svh;
-      color: var(--white);
-      font-family: "Roboto Condensed", Impact, sans-serif;
+      background: var(--cubs-blue);
+      color: var(--jersey-white);
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
+        sans-serif;
     }
 
-    /* Full-screen jersey fabric */
-    .jersey {
-      min-height: 100vh;
+    .landing {
       min-height: 100svh;
-      width: 100%;
-      display: grid;
-      place-items: center;
-      padding: 32px 18px;
-
-      background-color: var(--blue);
-      background-image:
-        radial-gradient(
-          ellipse at 50% 35%,
-          rgba(90, 145, 235, 0.24),
-          transparent 70%
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,0.025) 0px,
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px,
-          transparent 4px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          rgba(0,0,0,0.025) 0px,
-          rgba(0,0,0,0.025) 1px,
-          transparent 1px,
-          transparent 4px
-        );
-
-      box-shadow: inset 0 0 100px rgba(0, 15, 65, 0.2);
-    }
-
-    /* The entire design stays within this width */
-    .jersey-design {
-      width: 100%;
-      max-width: 540px;
-      min-width: 0;
-      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
       text-align: center;
     }
 
-    /* Responsive curved name */
-    .name-arch {
-      display: block;
-      width: 100%;
-      height: auto;
+    .jersey {
+      width: min(100%, 650px);
       overflow: visible;
-      margin: 0 auto;
     }
 
-    .name-letters {
-      font-family: "Roboto Condensed", Impact, sans-serif;
-      font-weight: 900;
-      font-size: 66px;
-      letter-spacing: 1px;
-      fill: var(--red);
-      stroke: var(--white);
+    .name {
+      fill: var(--jersey-white);
+      stroke: var(--cubs-red);
       stroke-width: 1.5px;
-      stroke-linejoin: round;
       paint-order: stroke fill;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
+        sans-serif;
+      font-size: 35px;
+      letter-spacing: 2px;
     }
 
-    /* Large athletic number */
     .number {
-      margin: -2% 0 0;
-      color: var(--red);
-      font-family: "Roboto Condensed", Impact, sans-serif;
-      font-size: clamp(150px, 42vw, 330px);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.055em;
-      padding-right: 0.055em;
-
-      -webkit-text-stroke: 4px var(--white);
+      fill: var(--jersey-white);
+      stroke: var(--cubs-red);
+      stroke-width: 5px;
       paint-order: stroke fill;
-
-      text-shadow: 2px 3px 0 rgba(0, 0, 0, 0.16);
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
+        sans-serif;
+      font-size: 235px;
+      letter-spacing: -8px;
     }
 
-    .bottom-seam {
-      width: 32%;
-      height: 1px;
-      margin: 18px auto 0;
-      background: rgba(255, 255, 255, 0.15);
+    .teaser {
+      margin-top: 55px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(13px, 2vw, 17px);
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: lowercase;
+      color: var(--jersey-white);
     }
 
-    /* Phones */
     @media (max-width: 480px) {
-      .jersey {
-        padding: 24px 24px;
-      }
+      .name {
+  fill: var(--cubs-red);
+  stroke: var(--jersey-white);
+  stroke-width: 2px;
+  paint-order: stroke fill;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
+    sans-serif;
+  font-size: 35px;
+  letter-spacing: 2px;
+}
 
-      .jersey-design {
-        max-width: 360px;
-      }
-
-      .name-letters {
-        font-size: 66px;
-        letter-spacing: 0;
-        stroke-width: 1.5px;
-      }
-
-      .number {
-        font-size: clamp(150px, 43vw, 205px);
-        -webkit-text-stroke-width: 3px;
-      }
-
-      .bottom-seam {
-        margin-top: 12px;
-      }
-    }
-
-    /* Very narrow phones */
-    @media (max-width: 350px) {
-      .jersey {
-        padding-inline: 20px;
-      }
-
-      .jersey-design {
-        max-width: 300px;
-      }
-
-      .name-letters {
-        font-size: 64px;
-      }
-
-      .number {
-        font-size: 145px;
-      }
-    }
-
-    /* Short landscape screens */
-    @media (max-height: 450px) and (orientation: landscape) {
-      .jersey {
-        padding-block: 16px;
-      }
-
-      .jersey-design {
-        max-width: 350px;
-      }
-
-      .number {
-        font-size: clamp(100px, 32vh, 180px);
+.number {
+  fill: var(--cubs-red);
+  stroke: var(--jersey-white);
+  stroke-width: 5px;
+  paint-order: stroke fill;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
+    sans-serif;
+  font-size: 235px;
+  letter-spacing: -8px;
+}
+      .teaser {
+        margin-top: 35px;
+        letter-spacing: 3px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="jersey">
-    <section class="jersey-design" aria-label="Sammy Sosus baseball jersey">
+  <main class="landing">
+    <svg
+      class="jersey"
+      viewBox="0 0 600 330"
+      role="img"
+      aria-label="SAMMY SOSUS, number 21"
+    >
+      <defs>
+        <path
+          id="name-arc"
+          d="M 65,145 Q 300,-10 535,145"
+          fill="none"
+        />
+      </defs>
 
-      <svg
-        class="name-arch"
-        viewBox="0 0 400 100"
-        role="img"
-        aria-label="SAMMY SOSUS"
-      >
-        <defs>
-          <path
-            id="name-curve"
-            d="M 28,78 Q 200,-4 372,78"
-          />
-        </defs>
+      <text class="name" text-anchor="middle">
+        <textPath
+          href="#name-arc"
+          startOffset="50%"
+        >SAMMY SOSUS</textPath>
+      </text>
 
-        <text class="name-letters" text-anchor="middle">
-          <textPath
-            href="#name-curve"
-            startOffset="50%"
-            textLength="320"
-            lengthAdjust="spacingAndGlyphs"
-          >SAMMY SOSUS</textPath>
-        </text>
-      </svg>
+      <text
+        class="number"
+        x="300"
+        y="300"
+        text-anchor="middle"
+      >21</text>
+    </svg>
 
-      <div class="number" aria-label="Number 21">21</div>
-
-      <div class="bottom-seam"></div>
-    </section>
+    <p class="teaser">in the on deck circle...</p>
   </main>
 </body>
 </html>
-
