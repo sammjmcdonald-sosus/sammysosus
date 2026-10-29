@@ -4,9 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sammy Sosus #21</title>
+  <title>Sammy Sosus | Number 21</title>
+
+  <!-- Free athletic-style condensed font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --jersey-blue: #003DA5;
+      --jersey-red: #D71920;
+      --jersey-white: #FFFFFF;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -14,94 +25,183 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background-color: #003DA5;
       display: flex;
-      justify-content: center;
       align-items: center;
-      font-family: Arial, Helvetica, sans-serif;
+      justify-content: center;
+      overflow: hidden;
+      background: #002d7d;
+      font-family: "Roboto Condensed", Impact, sans-serif;
     }
 
+    /* Blue jersey fabric */
     .jersey {
-      text-align: center;
-      width: 100%;
-      max-width: 600px;
-      padding: 20px;
-    }
-
-    .name {
+      position: relative;
+      isolation: isolate;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      gap: 1px;
-      margin-bottom: -5px;
+      justify-content: center;
+      width: 100%;
+      min-height: 100vh;
+      padding: 30px 12px 50px;
+      overflow: hidden;
+
+      background-color: var(--jersey-blue);
+
+      /* Soft lighting and subtle woven texture */
+      background-image:
+        radial-gradient(
+          ellipse at 50% 35%,
+          rgba(65, 125, 220, 0.35),
+          transparent 68%
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.025) 0px,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px,
+          transparent 3px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.035) 0px,
+          rgba(0, 0, 0, 0.035) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+
+      box-shadow: inset 0 0 100px rgba(0, 15, 65, 0.3);
     }
 
-    .name span {
-      display: inline-block;
-      color: #D71920;
-      font-size: clamp(20px, 5.5vw, 38px);
+    /* Gentle fabric shading along the edges */
+    .jersey::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.13),
+          transparent 18%,
+          transparent 82%,
+          rgba(0, 0, 0, 0.13)
+        );
+    }
+
+    .design {
+      width: min(100%, 760px);
+      text-align: center;
+      transform: translateY(-8px);
+    }
+
+    /* SVG gives the name a smooth, continuous arch */
+    .arched-name {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+      margin: 0 auto -2%;
+    }
+
+    .name-text {
+      font-family: "Roboto Condensed", Impact, sans-serif;
+      font-size: 68px;
       font-weight: 900;
-      letter-spacing: -1px;
-      text-shadow: 2px 2px 0 #00276B;
+      letter-spacing: 3px;
+      fill: var(--jersey-red);
+      stroke: var(--jersey-white);
+      stroke-width: 1.8px;
+      paint-order: stroke fill;
+      stroke-linejoin: round;
     }
 
-    /* Curve the letters into an arch */
-    .name span:nth-child(1)  { transform: translateY(20px) rotate(-24deg); }
-    .name span:nth-child(2)  { transform: translateY(10px) rotate(-18deg); }
-    .name span:nth-child(3)  { transform: translateY(3px) rotate(-12deg); }
-    .name span:nth-child(4)  { transform: translateY(-2px) rotate(-6deg); }
-    .name span:nth-child(5)  { transform: translateY(-5px) rotate(-2deg); }
-    .name span:nth-child(6)  { transform: translateY(-5px) rotate(2deg); }
-    .name span:nth-child(7)  { transform: translateY(-2px) rotate(6deg); }
-    .name span:nth-child(8)  { transform: translateY(3px) rotate(12deg); }
-    .name span:nth-child(9)  { transform: translateY(10px) rotate(18deg); }
-    .name span:nth-child(10) { transform: translateY(20px) rotate(24deg); }
-    .name span:nth-child(11) { transform: translateY(29px) rotate(28deg); }
-
+    /* Oversized athletic jersey number */
     .number {
-      color: #D71920;
-      font-size: clamp(180px, 45vw, 340px);
+      display: block;
+      margin-top: -1%;
+      color: var(--jersey-red);
+      font-family: "Roboto Condensed", Impact, sans-serif;
+      font-size: clamp(210px, 46vw, 390px);
       font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -12px;
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+      padding-right: 0.065em;
+
+      -webkit-text-stroke: 5px var(--jersey-white);
+      paint-order: stroke fill;
+
       text-shadow:
-        4px 4px 0 #FFFFFF,
-        8px 8px 0 #D71920;
-      -webkit-text-stroke: 2px #FFFFFF;
+        2px 3px 0 rgba(0, 0, 0, 0.18),
+        0 0 1px rgba(255, 255, 255, 0.3);
     }
 
-    .pinstripes {
-      display: inline-block;
-      padding: 20px 35px;
-      background: repeating-linear-gradient(
-        90deg,
-        #FFFFFF 0px,
-        #FFFFFF 2px,
-        #003DA5 2px,
-        #003DA5 12px
-      );
-      border-radius: 12px;
+    /* Fine, low-contrast jersey seam */
+    .seam {
+      width: 34%;
+      height: 1px;
+      margin: 18px auto 0;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    @media (max-width: 480px) {
+      .jersey {
+        padding: 20px 8px;
+      }
+
+      .design {
+        width: 100%;
+      }
+
+      .name-text {
+        font-size: 70px;
+        letter-spacing: 2px;
+      }
+
+      .number {
+        font-size: clamp(190px, 52vw, 250px);
+        -webkit-text-stroke-width: 3px;
+      }
     }
   </style>
 </head>
 
 <body>
   <main class="jersey">
-    <div class="name" aria-label="Sammy Sosus">
-      <span>S</span>
-      <span>A</span>
-      <span>M</span>
-      <span>M</span>
-      <span>Y</span>
-      <span>&nbsp;</span>
-      <span>S</span>
-      <span>O</span>
-      <span>S</span>
-      <span>U</span>
-      <span>S</span>
-    </div>
+    <div class="design">
 
-    <div class="number">21</div>
+      <!-- The letters follow a smooth curved path -->
+      <svg
+        class="arched-name"
+        viewBox="0 0 900 205"
+        role="img"
+        aria-label="SAMMY SOSUS"
+      >
+        <defs>
+          <path
+            id="name-arc"
+            d="M 65,155 Q 450,-45 835,155"
+          />
+        </defs>
+
+        <text
+          class="name-text"
+          text-anchor="middle"
+        >
+          <textPath
+            href="#name-arc"
+            startOffset="50%"
+            textLength="690"
+            lengthAdjust="spacingAndGlyphs"
+          >SAMMY SOSUS</textPath>
+        </text>
+      </svg>
+
+      <div class="number" aria-label="Number 21">21</div>
+
+      <div class="seam"></div>
+    </div>
   </main>
 </body>
 </html>
