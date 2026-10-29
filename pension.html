@@ -133,14 +133,85 @@
   line-height: 1.15;
   letter-spacing: 2px;
 }
+    
+.projection {
+  margin-top: 36px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.projection-label {
+  margin: 0 0 10px;
+  color: #FF7777;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.projection h2 {
+  margin: 0;
+  color: var(--white);
+  font-family: Impact, Haettenschweiler,
+    "Arial Narrow Bold", sans-serif;
+  font-size: clamp(32px, 7vw, 48px);
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.projection-description {
+  color: #C6D3ED;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.projection-total {
+  margin: 26px 0;
+  padding: 20px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: center;
+}
+
+.projection-total span {
+  display: block;
+  margin-bottom: 10px;
+  color: #C6D3ED;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.projection-total strong {
+  display: block;
+  color: #FFFFFF;
+  font-family: Impact, Haettenschweiler,
+    "Arial Narrow Bold", sans-serif;
+  font-size: clamp(36px, 9vw, 58px);
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 28px;
+}
+
+.projection-note {
+  margin-top: 20px;
+  color: #C6D3ED;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (max-width: 420px) {
+  .chart-container {
+    height: 240px;
+  }
+}
 
 
-    @media (max-width: 420px) {
-      main {
-        width: calc(100% - 22px);
-        padding-top: 92px;
-      }
-    }
   </style>
 </head>
 
@@ -166,6 +237,47 @@
     <p class="balance-label">CURRENT BALANCE</p>
 
     <p class="balance-amount">$54.38</p>
+
+
+<main>
+  <!-- EXISTING LIVE BALANCE - KEEP AT THE TOP -->
+  <section class="pension-balance">
+    <div class="live-indicator">
+      <span class="live-dot"></span>
+      <span>LIVE</span>
+    </div>
+
+    <p class="balance-label">CURRENT BALANCE</p>
+    <p class="balance-amount">$54.38</p>
+  </section>
+
+  <!-- NEW PENSION PROJECTION - BELOW THE BALANCE -->
+  <section class="projection">
+    <p class="projection-label">THE ROAD TO 2050</p>
+    <h2>Projected Growth</h2>
+
+    <p class="projection-description">
+      Investing $120 annually with an assumed 9% annual return.
+    </p>
+
+    <div class="projection-total">
+      <span>PROJECTED 2050 BALANCE</span>
+      <strong>$9,644.98</strong>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="pensionChart"></canvas>
+    </div>
+
+    <p class="projection-note">
+      Illustrative projection only. Assumes the current $54.38
+      balance earns 9% annually and $120 is added at the end
+      of each year. Actual returns may vary. Fees, taxes and
+      inflation are not included.
+    </p>
+  </section>
+</main>
+
     
   </section>
 </main>
@@ -173,4 +285,98 @@
   </main>
 
 </body>
+  
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const startBalance = 54.38;
+  const annualContribution = 120;
+  const annualReturn = 0.09;
+  const startYear = 2026;
+  const endYear = 2050;
+
+  const years = [startYear];
+  const balances = [startBalance];
+
+  let balance = startBalance;
+
+  for (let year = startYear + 1; year <= endYear; year++) {
+    balance = balance * (1 + annualReturn);
+    balance += annualContribution;
+
+    years.push(year);
+    balances.push(Number(balance.toFixed(2)));
+  }
+
+  new Chart(document.getElementById("pensionChart"), {
+    type: "line",
+    data: {
+      labels: years,
+      datasets: [{
+        label: "Projected balance",
+        data: balances,
+        borderColor: "#CC3433",
+        backgroundColor: "rgba(204, 52, 51, 0.18)",
+        borderWidth: 3,
+        fill: true,
+        tension: 0.3,
+        pointRadius: 0,
+        pointHoverRadius: 5,
+        pointBackgroundColor: "#FFFFFF"
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        intersect: false,
+        mode: "index"
+      },
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return "$" + context.parsed.y.toLocaleString(
+                "en-CA",
+                {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2
+                }
+              );
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: "#FFFFFF",
+            maxTicksLimit: 7
+          },
+          grid: {
+            color: "rgba(255, 255, 255, 0.08)"
+          }
+        },
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: "#FFFFFF",
+            callback: function(value) {
+              return "$" + Number(value).toLocaleString("en-CA");
+            }
+          },
+          grid: {
+            color: "rgba(255, 255, 255, 0.12)"
+          }
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>
+
 </html>
