@@ -4,18 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pension | SAMMY SOSUS 21</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Pension | SAMMY SOSUS</title>
 
   <style>
     :root {
-      --blue: #173982;
-      --red: #CC3433;
+      --cubs-blue: #0E3386;
+      --cubs-red: #CC3433;
       --white: #FFFFFF;
-      --muted: #D0D9EC;
     }
 
     * {
@@ -24,120 +20,67 @@
 
     body {
       margin: 0;
-      background: var(--blue);
+      min-height: 100vh;
+      background: var(--cubs-blue);
       color: var(--white);
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* Shared header */
-    .site-header {
-  min-height: 0;
-  padding: 35px 20px 20px;
-  text-align: center;
-  border-bottom: 4px solid var(--red);
-}
+    header {
+      padding: 24px 16px;
+      text-align: center;
+      border-bottom: 2px solid var(--cubs-red);
     }
 
     .brand {
       margin: 0;
-      font-family: 'Anton', Impact, sans-serif;
+      font-family: Impact, Haettenschweiler,
+        "Arial Narrow Bold", sans-serif;
       font-size: clamp(27px, 5vw, 42px);
-      font-weight: 400;
-      line-height: 1.2;
       letter-spacing: 3px;
-      color: var(--white);
     }
 
-    .brand-number {
-      color: var(--red);
+    .brand span {
+      color: var(--cubs-red);
       -webkit-text-stroke: 1px var(--white);
     }
 
     .back-link {
       display: inline-block;
-      margin-top: 24px;
+      margin-top: 14px;
       color: var(--white);
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
       text-decoration: none;
+      text-transform: uppercase;
     }
 
     .back-link:hover {
-      color: #FF7777;
+      color: var(--cubs-red);
     }
 
-    /* Shared content layout */
     main {
-      width: min(1560px, calc(100% - 80px));
+      width: min(100% - 32px, 780px);
       margin: 0 auto;
-      padding: 40px 0 80px;
-    }
-
-    .eyebrow {
-      margin: 0 0 24px;
-      color: #FF6969;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 8px;
-      text-transform: uppercase;
+      padding: 45px 0 70px;
+      text-align: center;
     }
 
     h2 {
       margin: 0;
       color: var(--white);
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: clamp(32px, 8vw, 58px);
-      font-weight: 400;
-      line-height: 1.12;
+      font-family: Impact, Haettenschweiler,
+        "Arial Narrow Bold", sans-serif;
+      font-size: clamp(38px, 8vw, 58px);
+      font-weight: normal;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    .description {
-      margin: 28px 0 48px;
-      color: var(--muted);
-      font-size: 27px;
-      line-height: 1.6;
-      font-weight: 500;
-    }
-
-    .announcement {
-      max-width: 780px;
-      padding: 28px 30px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      color: var(--muted);
-      font-size: 20px;
-      line-height: 1.7;
-    }
-
-    @media (max-width: 600px) {
-      .site-header {
-        min-height: 200px;
-        padding: 40px 12px 32px;
-      }
-
-      .back-link {
-        font-size: 15px;
-        letter-spacing: 3px;
-      }
-
+    @media (max-width: 420px) {
       main {
-        width: calc(100% - 40px);
-        padding-top: 55px;
-      }
-
-      .eyebrow {
-        font-size: 13px;
-        letter-spacing: 4px;
-      }
-
-      .description {
-        font-size: 19px;
-      }
-
-      .announcement {
-        padding: 22px 18px;
-        font-size: 17px;
+        width: calc(100% - 22px);
+        padding-top: 32px;
       }
     }
   </style>
@@ -145,28 +88,16 @@
 
 <body>
 
-  <header class="site-header">
-    <h1 class="brand">
-      SAMMY SOSUS <span class="brand-number">21</span>
-    </h1>
-
-    <a href="home.html" class="back-link">← BACK TO HOME</a>
+  <header>
+    <h1 class="brand">SAMMY SOSUS <span>21</span></h1>
+    <a class="back-link" href="home.html">
+      &larr; Back to home
+    </a>
   </header>
 
   <main>
-    <p class="eyebrow">League Information</p>
-
-    <h2>Pension</h2>
-
-    <p class="description">
-      Important information about league pension to be announced
-    </p>
-
-    <div class="announcement">
-      Important information about league pension to be announced.
-    </div>
+    <h2>Under Construction</h2>
   </main>
 
 </body>
 </html>
-
