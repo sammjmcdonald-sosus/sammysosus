@@ -1,1 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAMMY SOSUS #21</title>
 
+  <style>
+    :root {
+      --cubs-blue: #0E3386;
+      --cubs-red: #CC3433;
+      --jersey-white: #FFFFFF;
+      --purple: #8000FF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
+        sans-serif;
+    }
+    
+      .xp-link {
+    display: inline-block;
+    margin-top: 32px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+.xp-link:hover {
+  color: #CC3433;
+}
+
+    /* SECRET ENTRY SCREEN */
+
+    #entry-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      background: #000000;
+      overflow: hidden;
+    }
+
+    #secret-square {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      background: var(--purple);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      appearance: none;
+      transition: background 0.15s ease;
+    }
+
+    #secret-square:hover {
+      background: #A64DFF;
+    }
+
+    #secret-square:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 5px;
+    }
+
+    /* SAMMY SOSUS HOME PAGE */
+
+    #home-screen {
+      min-height: 100vh;
+      background: var(--cubs-blue);
+      color: var(--jersey-white);
+    }
+
+    .landing {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .jersey {
+      display: block;
+      width: min(100%, 650px);
+      overflow: visible;
+    }
+
+    .name {
+      fill: var(--cubs-red);
+      stroke: var(--jersey-white);
+      stroke-width: 2px;
+      paint-order: stroke fill;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
+        sans-serif;
+      font-size: 35px;
+      letter-spacing: 2px;
+    }
+
+    .number {
+      fill: var(--cubs-red);
+      stroke: var(--jersey-white);
+      stroke-width: 5px;
+      paint-order: stroke fill;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
+        sans-serif;
+      font-size: 235px;
+      letter-spacing: -8px;
+    }
+
+    .teaser {
+      margin-top: 55px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(13px, 2vw, 17px);
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: lowercase;
+      color: var(--jersey-white);
+
+      
+    }
+
+    @media (max-width: 480px) {
+      .name {
+        font-size: 32px;
+      }
+
+      .number {
+        font-size: 210px;
+      }
+
+      .teaser {
+        margin-top: 35px;
+        letter-spacing: 3px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- EXISTING HOME PAGE -->
+
+  <main id="home-screen">
+    <section class="landing">
+
+      <svg
+        class="jersey"
+        viewBox="0 0 600 330"
+        role="img"
+        aria-label="SAMMY SOSUS, number 21"
+      >
+        <defs>
+          <path
+            id="name-arc"
+            d="M 65,145 Q 300,-10 535,145"
+            fill="none"
+          />
+        </defs>
+
+        <text class="name" text-anchor="middle">
+          <textPath
+            href="#name-arc"
+            startOffset="50%"
+          >SAMMY SOSUS</textPath>
+        </text>
+
+        <text
+          class="number"
+          x="300"
+          y="300"
+          text-anchor="middle"
+        >21</text>
+      </svg>
+
+      <p class="teaser">in the on deck circle...</p>
+      <a href="xp-updates.html" class="xp-link">XP Updates</a>
+
+    </section>
+  </main>
+
+  <script>
+    const entryScreen = document.getElementById("entry-screen");
+    const secretSquare = document.getElementById("secret-square");
+    const homeScreen = document.getElementById("home-screen");
+
+    // Place the purple square at a random on-screen position.
+    function moveSquare() {
+      const padding = 20;
+      const size = secretSquare.offsetWidth;
+
+      const maxX = Math.max(
+        padding,
+        window.innerWidth - size - padding
+      );
+
+      const maxY = Math.max(
+        padding,
+        window.innerHeight - size - padding
+      );
+
+      const x = padding + Math.random() * (maxX - padding);
+      const y = padding + Math.random() * (maxY - padding);
+
+      secretSquare.style.left = `${x}px`;
+      secretSquare.style.top = `${y}px`;
+    }
+
+    // Generate a new position whenever the page loads.
+    moveSquare();
+
+    // Keep the square on-screen when the window is resized.
+    window.addEventListener("resize", moveSquare);
+
+    // Reveal the home page when the square is clicked.
+    secretSquare.addEventListener("click", () => {
+      entryScreen.remove();
+      homeScreen.hidden = false;
+      window.scrollTo(0, 0);
+    });
+  </script>
+
+</body>
+</html>
