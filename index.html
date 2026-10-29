@@ -155,14 +155,19 @@
 
   .design {
     width: 100%;
-    max-width: 420px;
-    transform: none;
+  max-width: 760px;
+  min-width: 0;
+  text-align: center;
+  transform: translateY(-8px);
   }
 
   .arched-name {
-    width: 100%;
-    height: auto;
-    margin-bottom: 4px;
+    display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+  margin: 0 auto -2%;
   }
 
   .name-text {
@@ -201,10 +206,10 @@
         aria-label="SAMMY SOSUS"
       >
         <defs>
-          <path
-            id="name-arc"
-            d="M 65,155 Q 450,-45 835,155"
-          />
+         <path
+  id="name-arc"
+  d="M 110,155 Q 450,-20 790,155"
+/>
         </defs>
 
         <text
@@ -214,7 +219,7 @@
           <textPath
             href="#name-arc"
             startOffset="50%"
-            textLength="690"
+            textLength="620"
             lengthAdjust="spacingAndGlyphs"
           >SAMMY SOSUS</textPath>
         </text>
