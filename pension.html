@@ -204,6 +204,110 @@
   font-size: 11px;
   line-height: 1.7;
 }
+    
+/* PROJECTED ANNUAL PAYOUT AFTER MATURITY */
+.maturity-payout {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 2px solid var(--cubs-red);
+  text-align: left;
+}
+
+.payout-eyebrow {
+  margin: 0 0 10px;
+  color: #FF7777;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-align: center;
+}
+
+.maturity-payout h2 {
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.payout-intro {
+  margin: 14px 0 24px;
+  color: #C6D3ED;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.payout-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.payout-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  color: var(--white);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.payout-table th,
+.payout-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.payout-table th {
+  color: #C6D3ED;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.payout-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.payout-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.payout-table td:first-child {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.payout-table .payout-highlight {
+  color: #FFFFFF;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.payout-footnote {
+  margin: 18px 0 0;
+  color: #C6D3ED;
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+  opacity: 0.8;
+}
+
+@media (max-width: 420px) {
+  .maturity-payout {
+    margin-top: 36px;
+    padding-top: 26px;
+  }
+
+  .payout-table th,
+  .payout-table td {
+    padding: 13px 10px;
+  }
+}
+
 
 @media (max-width: 420px) {
   .chart-container {
@@ -265,6 +369,81 @@
       of each year. Actual returns may vary. Fees, taxes and
       inflation are not included.
     </p>
+
+    
+<!-- ANNUAL PAYOUT AFTER MATURITY -->
+<section class="maturity-payout">
+  <p class="payout-eyebrow">AFTER MATURITY</p>
+  <h2>Projected Annual Return After Fund Matures</h2>
+
+  <p class="payout-intro">
+    Illustrative annual dividend and principal payouts per person.
+  </p>
+
+  <div class="payout-table-wrap">
+    <table class="payout-table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Starting Share Value</th>
+          <th>6% Dividend Cash</th>
+          <th>Cash Taken From Principal</th>
+          <th>Total Annual Payout</th>
+          <th>Remaining Share Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Year 1</td>
+          <td>$688.93</td>
+          <td>$41.34</td>
+          <td>$18.73</td>
+          <td class="payout-highlight">$60.06</td>
+          <td>$670.20</td>
+        </tr>
+        <tr>
+          <td>Year 2</td>
+          <td>$670.20</td>
+          <td>$40.21</td>
+          <td>$19.85</td>
+          <td class="payout-highlight">$60.06</td>
+          <td>$650.35</td>
+        </tr>
+        <tr>
+          <td>Year 3</td>
+          <td>$650.35</td>
+          <td>$39.02</td>
+          <td>$21.04</td>
+          <td class="payout-highlight">$60.06</td>
+          <td>$629.30</td>
+        </tr>
+        <tr>
+          <td>Year 10</td>
+          <td>$473.71</td>
+          <td>$28.42</td>
+          <td>$31.64</td>
+          <td class="payout-highlight">$60.06</td>
+          <td>$442.07</td>
+        </tr>
+        <tr>
+          <td>Year 20</td>
+          <td>$56.66</td>
+          <td>$3.40</td>
+          <td>$56.66</td>
+          <td class="payout-highlight">$60.06</td>
+          <td>$0.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="payout-footnote">
+    Illustrative projections only. Upon maturity, the fund will be
+    liquidated over the course of 20 years, with all remaining
+    proceeds scheduled to be paid out by 2070.
+  </p>
+</section>
+
   </section>
 </main>
 
