@@ -1,1 +1,343 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gahoo Gang Hideout</title>
+
+<style>
+:root {
+  --purple-dark: #10051F;
+  --purple-deep: #1B0835;
+  --purple: #7628D8;
+  --purple-bright: #A855F7;
+  --purple-light: #D8B4FE;
+  --white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 50% 40%, #35105D 0%, transparent 55%),
+    linear-gradient(135deg, #10051F, #1B0835 55%, #090313);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* BACKGROUND GRID */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(168, 85, 247, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.07) 1px, transparent 1px);
+  background-size: 45px 45px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+/* HEADER */
+
+header {
+  position: relative;
+  z-index: 2;
+  padding: 25px 20px;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.5);
+  text-align: center;
+}
+
+.agency-label {
+  margin: 0 0 12px;
+  color: var(--purple-light);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.brand {
+  margin: 0;
+  font-family: Impact, Haettenschweiler,
+    "Arial Narrow Bold", sans-serif;
+  font-size: clamp(35px, 7vw, 65px);
+  font-weight: normal;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+}
+
+.brand span {
+  color: var(--purple-bright);
+}
+
+/* NAVIGATION */
+
+.back-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--purple-light);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.back-link:hover {
+  color: white;
+}
+
+/* MAIN CONTENT */
+
+main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 70vh;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.content {
+  max-width: 800px;
+}
+
+.status-label {
+  display: inline-block;
+  margin-bottom: 25px;
+  padding: 9px 16px;
+  border: 1px solid var(--purple-bright);
+  color: var(--purple-light);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.2);
+}
+
+h2 {
+  margin: 0;
+  font-family: Impact, Haettenschweiler,
+    "Arial Narrow Bold", sans-serif;
+  font-size: clamp(42px, 9vw, 86px);
+  font-weight: normal;
+  letter-spacing: 3px;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 0 35px rgba(168, 85, 247, 0.35);
+}
+
+h2 span {
+  display: block;
+  color: var(--purple-bright);
+}
+
+.subtitle {
+  margin: 24px 0 0;
+  color: #D8C5ED;
+  font-size: 13px;
+  letter-spacing: 3px;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+/* CONSTRUCTION STATUS */
+
+.construction {
+  margin: 45px auto 0;
+  padding: 17px 25px;
+  max-width: 330px;
+  border-top: 1px solid rgba(168, 85, 247, 0.5);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.5);
+}
+
+.construction p {
+  margin: 0;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+.construction small {
+  display: block;
+  margin-top: 10px;
+  color: var(--purple-light);
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+/* KEVIN CUBES */
+
+.kevin {
+  position: fixed;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, #C084FC, #6B21A8);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 0 12px rgba(168, 85, 247, 0.8),
+    inset 0 0 8px rgba(255, 255, 255, 0.25);
+  transform: rotate(45deg);
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+.kevin:nth-child(2) {
+  width: 14px;
+  height: 14px;
+  animation-delay: 1s;
+}
+
+.kevin:nth-child(3) {
+  width: 30px;
+  height: 30px;
+  animation-delay: 2s;
+}
+
+.kevin:nth-child(4) {
+  width: 11px;
+  height: 11px;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -22px;
+  }
+}
+
+/* DECORATIVE HUD */
+
+.hud {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  color: rgba(216, 180, 254, 0.6);
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.hud span::before {
+  content: "◆";
+  margin-right: 8px;
+  color: var(--purple-bright);
+}
+
+/* FOOTER */
+
+footer {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  border-top: 1px solid rgba(168, 85, 247, 0.3);
+  color: rgba(216, 180, 254, 0.55);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 500px) {
+  header {
+    padding: 22px 12px;
+  }
+
+  main {
+    min-height: 65vh;
+    padding: 55px 15px;
+  }
+
+  .hud {
+    gap: 14px;
+    font-size: 8px;
+  }
+
+  .subtitle {
+    font-size: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <p class="agency-label">BARKINGTON // CREATIVE DIVISION</p>
+
+  <h1 class="brand">
+    GAHOO GANG <span>HIDEOUT</span>
+  </h1>
+
+  <a href="home.html" class="back-link">
+    ← RETURN TO MAIN SITE
+  </a>
+</header>
+
+<main>
+
+  <div class="content">
+
+    <div class="status-label">
+      ◆ SECRET LOCATION DISCOVERED ◆
+    </div>
+
+    <h2>
+      THE GAHOO
+      <span>HIDEOUT</span>
+    </h2>
+
+    <p class="subtitle">
+      A new reality is loading.
+      <br>
+      Prepare for deployment.
+    </p>
+
+    <div class="construction">
+      <p>UNDER CONSTRUCTION</p>
+      <small>PLEASE STAND BY</small>
+    </div>
+
+  </div>
+
+  <div class="hud">
+    <span>REALITY 01</span>
+    <span>KEVIN ACTIVE</span>
+    <span>LOADING...</span>
+  </div>
+
+</main>
+
+<!-- FLOATING KEVIN CUBES -->
+
+<div class="kevin" style="top: 18%; left: 12%;"></div>
+<div class="kevin" style="top: 32%; right: 15%;"></div>
+<div class="kevin" style="top: 72%; left: 20%;"></div>
+<div class="kevin" style="top: 78%; right: 23%;"></div>
+
+<footer>
+  GAHOO GANG // EST. 2026 // BARKINGTON
+</footer>
+
+</body>
+</html>
+
