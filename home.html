@@ -146,6 +146,24 @@
         letter-spacing: 3px;
       }
     }
+/* RANDOM PURPLE ENTRY SQUARE */
+.secret-square {
+  position: fixed;
+  width: 13px;
+  height: 13px;
+  background: #8000FF;
+  display: block;
+  z-index: 9999;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.secret-square:hover {
+  transform: scale(1.4);
+  box-shadow: 0 0 12px rgba(128, 0, 255, 0.8);
+}
+
+    
   </style>
 </head>
 
@@ -232,7 +250,71 @@
       homeScreen.hidden = false;
       window.scrollTo(0, 0);
     });
-  </script>
+ 
+  
+<a href="gahoo.html"
+   class="secret-square"
+   id="secretSquare"
+   aria-label="Enter">
+</a>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const square = document.getElementById("secretSquare");
+
+  const squareSize = 13;
+  const padding = 25;
+
+  // Avoid the main SAMMY SOSUS 21 lettering.
+  // Change this selector if your homepage uses a different
+  // class or ID for its main lettering.
+  const protectedElements = document.querySelectorAll(
+    ".brand, h1, .main-title, #main-title"
+  );
+
+  const protectedAreas = Array.from(protectedElements).map(element => {
+    const rect = element.getBoundingClientRect();
+
+    return {
+      left: rect.left - 20,
+      right: rect.right + 20,
+      top: rect.top - 20,
+      bottom: rect.bottom + 20
+    };
+  });
+
+  function overlapsProtectedArea(x, y) {
+    return protectedAreas.some(area =>
+      x < area.right &&
+      x + squareSize > area.left &&
+      y < area.bottom &&
+      y + squareSize > area.top
+    );
+  }
+
+  let x, y;
+  let attempts = 0;
+
+  do {
+    x = padding + Math.random() *
+      (window.innerWidth - squareSize - padding * 2);
+
+    y = padding + Math.random() *
+      (window.innerHeight - squareSize - padding * 2);
+
+    attempts++;
+
+  } while (overlapsProtectedArea(x, y) && attempts < 1000);
+
+  if (attempts < 1000) {
+    square.style.left = x + "px";
+    square.style.top = y + "px";
+  } else {
+    square.style.display = "none";
+  }
+});
+</script>
+
 
 </body>
 </html>
