@@ -231,6 +231,33 @@
       text-align: center;
     }
 
+    .progress-track {
+  position: relative;
+    }
+    
+    .prestige-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cubs-red);
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    
+    .member.prestiged .progress-fill {
+      background: var(--white);
+      border-right: none;
+    }
+    
+    .member.prestiged {
+      border-color: var(--cubs-red);
+    }
+
     @media (max-width: 420px) {
       main {
         width: calc(100% - 22px);
@@ -311,7 +338,7 @@
       { name: "DJK", xp: 3250 },
       { name: "RD",  xp: 2600 },
       { name: "SP",  xp: 2750 },
-      { name: "MM",  xp: 3850 }
+      { name: "MTCH",  xp: 3850 }
     ];
 
     // ==========================================
@@ -337,6 +364,9 @@
 
       const card = document.createElement("section");
       card.className = "member";
+            if (member.xp >= targetXP) {
+        card.classList.add("prestiged");
+      }
 
       card.innerHTML = `
         <div class="member-top">
@@ -355,6 +385,10 @@
             class="progress-fill"
             style="--progress: ${progress}%"
           ></div>
+        
+          ${member.xp >= targetXP
+            ? '<div class="prestige-label">PRESTIGED</div>'
+            : ''}
         </div>
 
         <div class="member-bottom">
